@@ -6,17 +6,31 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws BancaException {
+    public static void main(String[] args) {
 
-        ContoCorrente cc = new ContoCorrente("Andrea", 1000000); //magari
-        ContoOnLine ccOn = new ContoOnLine("Andrea", 1000000, 50);
+        ContoCorrente cc = new ContoCorrente("Andrea", 50); //magari
+        ContoOnLine ccOn = new ContoOnLine("Andrea", 50, 50);
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Quanto vorresti prelevare?");
         double prelievo = scanner.nextDouble();
-        ccOn.preleva(prelievo);
+        try {
+            ccOn.preleva(prelievo);
+            System.out.println(ccOn);
+        } catch (BancaException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        try {
+            cc.preleva(prelievo);
+            System.out.println(cc);
+        } catch (BancaException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
+        }
         System.out.println(cc);
-        System.out.println(ccOn);
 
 
     }

@@ -20,14 +20,16 @@ public class ContoCorrente {
     }
 
     public void preleva(double x) throws BancaException {
-        try {
-            if (nMovimenti < maxMovimenti) saldo = saldo - x;
-            else saldo = saldo - x - 0.50;
 
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            throw new BancaException("Il Saldo e' in rosso!!!");
-        }
+        if (nMovimenti < maxMovimenti) {
+            saldo = saldo - x;
+            if (saldo < 0) {
+                throw new BancaException("Il saldo e' in rosso");
+            }
+        } else saldo = saldo - x - 0.50;
+
+//            throw new BancaException("Il Saldo e' in rosso!!!");
+
         nMovimenti++;
     }
 

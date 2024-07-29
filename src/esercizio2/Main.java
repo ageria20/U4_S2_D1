@@ -1,6 +1,5 @@
 package esercizio2;
 
-import exceptions.NumLessThenZero;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,9 +20,10 @@ public class Main {
 
         try {
             logger.info("KM / LT: " + km / lt);
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             logger.error(e.getMessage());
-            throw new NumLessThenZero(lt);
+            System.out.println("I litri consumati non possono essere 0");
+
 //            logger.error("Hai inserito dei dati errati " + e.getMessage());
         }
 
