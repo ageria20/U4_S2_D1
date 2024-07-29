@@ -20,51 +20,52 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        int index;
-        do {
+        while (true) {
+
             System.out.println("Inserisci un numero da 1 a 5 per scegliere la posizione, e 0 per uscire");
-            index = scanner.nextInt();
+            int index = scanner.nextInt();
+            if (index == 0) break;
+            else {
+                switch (index) {
+                    case 1:
+                        System.out.println("che numero vuoi inserire nella posizione 0?");
+                        int choosenNum = scanner.nextInt();
+                        myArr[index - 1] = choosenNum;
+                        System.out.println("After " + Arrays.toString(myArr));
 
-            switch (index) {
-                case 1:
-                    System.out.println("che numero vuoi inserire nella posizione 0?");
-                    int choosenNum = scanner.nextInt();
-                    myArr[index - 1] = choosenNum;
-                    System.out.println("After " + Arrays.toString(myArr));
-
-                    break;
-                case 2:
-                    System.out.println("che numero vuoi inserire nella posizione 1?");
-                    choosenNum = scanner.nextInt();
-                    myArr[index - 1] = choosenNum;
-                    System.out.println("After " + Arrays.toString(myArr));
-                    break;
-                case 3:
-                    System.out.println("che numero vuoi inserire nella posizione 2?");
-                    choosenNum = scanner.nextInt();
-                    myArr[index - 1] = choosenNum;
-                    System.out.println("After " + Arrays.toString(myArr));
-                    break;
-                case 4:
-                    System.out.println("che numero vuoi inserire nella posizione 3?");
-                    choosenNum = scanner.nextInt();
-                    myArr[index - 1] = choosenNum;
-                    System.out.println("After " + Arrays.toString(myArr));
-                    break;
-                case 5:
-                    System.out.println("che numero vuoi inserire nella posizione 4?");
-                    choosenNum = scanner.nextInt();
-                    myArr[index - 1] = choosenNum;
-                    System.out.println("After " + Arrays.toString(myArr));
-                    break;
-                default:
-                    System.out.println("Inserisci il numero richiesto");
-                    break;
+                        break;
+                    case 2:
+                        System.out.println("che numero vuoi inserire nella posizione 1?");
+                        choosenNum = scanner.nextInt();
+                        myArr[index - 1] = choosenNum;
+                        System.out.println("After " + Arrays.toString(myArr));
+                        break;
+                    case 3:
+                        System.out.println("che numero vuoi inserire nella posizione 2?");
+                        choosenNum = scanner.nextInt();
+                        myArr[index - 1] = choosenNum;
+                        System.out.println("After " + Arrays.toString(myArr));
+                        break;
+                    case 4:
+                        System.out.println("che numero vuoi inserire nella posizione 3?");
+                        choosenNum = scanner.nextInt();
+                        myArr[index - 1] = choosenNum;
+                        System.out.println("After " + Arrays.toString(myArr));
+                        break;
+                    case 5:
+                        System.out.println("che numero vuoi inserire nella posizione 4?");
+                        choosenNum = scanner.nextInt();
+                        myArr[index - 1] = choosenNum;
+                        System.out.println("After " + Arrays.toString(myArr));
+                        break;
+                    default:
+                        System.out.println("Inserisci il numero richiesto");
+                        break;
+                }
             }
-
             logger.info(Arrays.toString(myArr));
             logger.error(Arrays.toString(myArr));
-        } while (index != 0);
+        }
 
     }
 }
